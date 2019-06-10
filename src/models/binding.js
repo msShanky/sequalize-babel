@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.INTEGER(11),
 				allowNull: false,
 				primaryKey: true,
+				autoIncrement: true,
 			},
 			PampersLoyaltyId: {
 				type: DataTypes.STRING(50),
@@ -58,7 +59,6 @@ module.exports = (sequelize, DataTypes) => {
 			tableName: 'binding',
 		}
 	);
-	console.log(Binding, 'Model');
 	// Binding.associate(models => {
 	// 	Binding.belongsTo(models.retailer, { foreignKey: 'RetailerId' });
 	// 	Binding.belongsTo(models.bindingstatus, { foreignKey: 'BindingStatusId' });

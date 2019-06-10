@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.INTEGER(11),
 				allowNull: false,
 				primaryKey: true,
+				autoIncrement: true,
 			},
 			RetailerName: {
 				type: DataTypes.STRING(50),
@@ -54,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{
 			tableName: 'retailer',
-		}		
+		}
 	);
 
 	return Retailer;

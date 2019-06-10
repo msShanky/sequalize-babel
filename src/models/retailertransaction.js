@@ -1,5 +1,3 @@
-/* jshint indent: 2 */
-
 module.exports = (sequelize, DataTypes) => {
 	const RetailerTransaction = sequelize.define(
 		'retailertransaction',
@@ -8,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.INTEGER(11),
 				allowNull: false,
 				primaryKey: true,
+				autoIncrement: true,
 			},
 			RetailerId: {
 				type: DataTypes.INTEGER(11),
@@ -82,8 +81,6 @@ module.exports = (sequelize, DataTypes) => {
 			tableName: 'retailertransaction',
 		}
 	);
-	console.log(RetailerTransaction, 'Model RetailerTransaction');
-
 	// RetailerTransaction.associate(models => {
 	// 	RetailerTransaction.belongsTo(models.retailer, { foreignKey: 'RetailerId' });
 	// 	RetailerTransaction.belongsTo(models.binding, { foreignKey: 'BindingId' });

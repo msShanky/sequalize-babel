@@ -3,12 +3,17 @@ import db from '../models';
 
 const sequalizeSync = () => {
 	db.sequelize
-		.sync({ force: true })
-		.then(response => {
-			console.log(`Database & tables created!`);
-			console.log(response, 'Database from the config');
+		.authenticate()
+		.then(() => {
+			console.log('Successfull Connected to database');
 		})
-		.catch(error => console.log('error when sync', error));
+		.catch(error => console.log('error when connecting to database', error));
+	// db.sequelize
+	// 	.sync({ force: true })
+	// 	.then(() => {
+	// 		console.log('Successfully Synced database');
+	// 	})
+	// 	.catch(error => console.log('error when syncing database', error));
 };
 
 export default sequalizeSync;
