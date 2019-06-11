@@ -9,6 +9,9 @@
 		"clean": "rimraf dist",
 		"build": "babel ./src --out-dir dist",
 		"server:prod": "node ./dist/bin/www",
+		"build-dev": "set NODE_ENV=development && npm-run-all clean build",
+		"build-qa": "set NODE_ENV=qa && npm-run-all clean build",
+		"build-prod": "set NODE_ENV=production && npm-run-all clean build",
 		"prod": "set NODE_ENV=production && npm-run-all clean build server:prod",
 		"watch": "nodemon",
 		"auto-migrate-database": "sequelize-auto -h 127.0.0.1 -d pampers-backend-dev -u root -x password -p 3306 -o ./src/models -e mysql"
