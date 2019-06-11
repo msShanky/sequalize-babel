@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
 		'product',
 		{
 			ProductId: {
-				type: DataTypes.INTEGER(11),
+				type: DataTypes.INTEGER,
 				allowNull: false,
 				primaryKey: true,
 				autoIncrement: true
@@ -29,12 +29,12 @@ module.exports = (sequelize, DataTypes) => {
 			// 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
 			// },
 			CreatedBy: {
-				type: DataTypes.INTEGER(11),
+				type: DataTypes.INTEGER,
 				allowNull: true,
 				defaultValue: '1',
 			},
 			UpdatedBy: {
-				type: DataTypes.INTEGER(11),
+				type: DataTypes.INTEGER,
 				allowNull: true,
 				defaultValue: '1',
 			},

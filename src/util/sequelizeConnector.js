@@ -9,7 +9,7 @@ const sequalizeSync = () => {
 		})
 		.catch(error => console.log('error when connecting to database', error));
 	// db.sequelize
-	// 	.sync()
+	// 	.sync({ force: true })
 	// 	.then(() => {
 	// 		console.log('Successfully Synced database');
 	// 	})
