@@ -1,10 +1,15 @@
 const sequelizeConfig = {
 	development: {
-		username: 'root',
-		password: 'password',
-		database: 'pampers-backend-dev',
-		host: '127.0.0.1',
-		dialect: 'mysql',
+		username: 'mindtree',
+		password: 'pampers@2019',
+		database: 'pampersgtgidbinding-stage',
+		host: 'az-na-pampersgtgidbinding-stage.database.windows.net',
+		dialect: 'mssql',
+		dialectOptions: {
+			options: {
+				encrypt: true,
+			},
+		},
 	},
 	test: {
 		username: 'root',

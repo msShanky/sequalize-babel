@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
 				allowNull: true,
 			},
 			LogoBase64: {
-				type: 'BLOB',
+				type: DataTypes.STRING.BINARY,
 				allowNull: true,
 			},
 			MembershipIdValidationRegex: {
