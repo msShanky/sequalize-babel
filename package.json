@@ -3,7 +3,7 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"start": "set NODE_ENV=development && npm-run-all clean build server:prod",
+		"start": "node ./dist/bin/www",
 		"server": "babel-node --inspect ./src/bin/www",
 		"dev": "set NODE_ENV=development && npm-run-all server",
 		"clean": "rimraf dist",
