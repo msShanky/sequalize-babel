@@ -16,7 +16,7 @@ var sequalizeSync = function sequalizeSync() {
   })["catch"](function (error) {
     return console.log('error when connecting to database', error);
   }); // db.sequelize
-  // 	.sync()
+  // 	.sync({ force: true })
   // 	.then(() => {
   // 		console.log('Successfully Synced database');
   // 	})

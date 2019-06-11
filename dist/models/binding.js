@@ -4,7 +4,7 @@
 module.exports = function (sequelize, DataTypes) {
   var Binding = sequelize.define('binding', {
     BindingId: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
@@ -14,7 +14,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     RetailerId: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'retailer',
@@ -26,7 +26,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     BindingStatusId: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'bindingstatus',
@@ -44,12 +44,12 @@ module.exports = function (sequelize, DataTypes) {
     // 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
     // },
     CreatedBy: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: '1'
     },
     UpdatedBy: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: '1'
     }

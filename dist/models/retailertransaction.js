@@ -3,13 +3,13 @@
 module.exports = function (sequelize, DataTypes) {
   var RetailerTransaction = sequelize.define('retailertransaction', {
     RetailerTransactionId: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
     RetailerId: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'retailer',
@@ -25,7 +25,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false
     },
     BindingId: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'binding',
@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     ProductId: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: false,
       references: {
         model: 'product',
@@ -41,11 +41,11 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     Price: {
-      type: 'DOUBLE',
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     InvoiceAmount: {
-      type: 'DOUBLE',
+      type: DataTypes.FLOAT,
       allowNull: true
     },
     TransactionId: {
@@ -56,23 +56,23 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: true
     },
-    // CreatedAt: {
+    // createdAt: {
     // 	type: DataTypes.DATE,
     // 	allowNull: true,
     // 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
     // },
-    // UpdatedAt: {
+    // updatedAt: {
     // 	type: DataTypes.DATE,
     // 	allowNull: true,
     // 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
     // },
     CreatedBy: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: '1'
     },
     UpdatedBy: {
-      type: DataTypes.INTEGER(11),
+      type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: '1'
     }
