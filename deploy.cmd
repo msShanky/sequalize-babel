@@ -1,15 +1,15 @@
-@echo off
+REM @echo off
 
-echo installing npm modules
-call npm install
+REM echo installing npm modules
+REM call npm install
 
-echo cleaning artefacts
-call npm run clean
+REM echo cleaning artefacts
+REM call npm run clean
 
-echo running build
-call npm run build
+REM echo running build
+REM call npm run build
 
-echo compiling server and app
-call npm run server:prod
+REM echo compiling server and app
+REM call npm run server:prod
 
-echo build script finished.
+REM echo build script finished.
