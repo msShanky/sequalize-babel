@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+// TODO:abstract all the basic crud to a function
+
 /* Binding Status route */
 const bindingStatusRoute = ({ bindingstatus }) => {
 	const bindingStatusApi = Router();

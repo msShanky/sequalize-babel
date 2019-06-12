@@ -11,10 +11,10 @@ const sequelizeConfig = {
 			},
 		},
 	},
-	test: {
+	local: {
 		username: 'root',
-		password: null,
-		database: 'database_test',
+		password: 'password',
+		database: 'pampers-backend-dev',
 		host: '127.0.0.1',
 		dialect: 'mysql',
 	},

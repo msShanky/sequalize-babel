@@ -11,6 +11,9 @@ const basename = path.basename(__filename);
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config);
 
+console.log('Environment is', trimedENV);
+console.log('Config fetched for the role', config);
+
 fs.readdirSync(__dirname)
 	.filter(file => file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js')
 	.forEach(file => {

@@ -9,7 +9,7 @@
 	"scripts": {
 		"start": "node ./dist/bin/www",
 		"server": "babel-node --inspect ./src/bin/www",
-		"dev": "set NODE_ENV=development && npm-run-all server",
+		"dev": "set NODE_ENV=local && npm-run-all server",
 		"clean": "rimraf dist",
 		"build": "babel ./src --out-dir dist",
 		"server:prod": "node ./dist/bin/www",

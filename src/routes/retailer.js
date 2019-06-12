@@ -1,5 +1,7 @@
 import { Router } from 'express';
 
+// TODO:abstract all the basic crud to a function
+
 // const retailerRoute = Router();
 const retailerRoute = ({ retailer }) => {
 	const retailerApi = Router();
