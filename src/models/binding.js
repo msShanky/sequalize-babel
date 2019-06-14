@@ -1,67 +1,52 @@
-/* jshint indent: 2 */
-
 module.exports = (sequelize, DataTypes) => {
 	const Binding = sequelize.define(
-		'binding',
+		'Binding',
 		{
-			BindingId: {
+			bindingId: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				primaryKey: true,
 				autoIncrement: true,
 			},
-			PampersLoyaltyId: {
+			pampersLoyaltyId: {
 				type: DataTypes.STRING(50),
 				allowNull: false,
 			},
-			RetailerId: {
+			retailerId: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				references: {
-					model: 'retailer',
-					key: 'RetailerId',
+					model: 'Retailer',
+					key: 'retailerId',
 				},
 			},
-			RetailerMembershipId: {
+			retailerMembershipId: {
 				type: DataTypes.STRING(50),
 				allowNull: false,
 			},
-			BindingStatusId: {
+			bindingStatusId: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				references: {
-					model: 'bindingstatus',
-					key: 'BindingStatusId',
+					model: 'BindingStatus',
+					key: 'bindingStatusId',
 				},
 			},
-			// CreatedAt: {
-			// 	type: DataTypes.DATE,
-			// 	allowNull: true,
-			// 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-			// },
-			// UpdatedAt: {
-			// 	type: DataTypes.DATE,
-			// 	allowNull: true,
-			// 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-			// },
-			CreatedBy: {
+			createdBy: {
 				type: DataTypes.INTEGER,
 				allowNull: true,
 				defaultValue: '1',
 			},
-			UpdatedBy: {
+			updatedBy: {
 				type: DataTypes.INTEGER,
 				allowNull: true,
 				defaultValue: '1',
 			},
 		},
 		{
-			tableName: 'binding',
+			tableName: 'Binding',
+			modelName: 'binding',
 		}
 	);
-	// Binding.associate(models => {
-	// 	Binding.belongsTo(models.retailer, { foreignKey: 'RetailerId' });
-	// 	Binding.belongsTo(models.bindingstatus, { foreignKey: 'BindingStatusId' });
-	// });
 	return Binding;
 };

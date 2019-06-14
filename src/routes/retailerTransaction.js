@@ -4,11 +4,11 @@ import { Router } from 'express';
 
 /* retailerTransaction page. */
 
-const retailerTransactionRoute = ({ retailertransaction }) => {
+const retailerTransactionRoute = ({ RetailerTransaction }) => {
 	const retailerTransactionApi = Router();
 	retailerTransactionApi.get('/', async (req, res) => {
 		try {
-			const retailerTransactionData = await retailertransaction.findAll();
+			const retailerTransactionData = await RetailerTransaction.findAll();
 			res.status(200).json({
 				message: 'Successfully Retreived Data for retailerTransaction',
 				retailerTransaction: retailerTransactionData,
@@ -19,7 +19,7 @@ const retailerTransactionRoute = ({ retailertransaction }) => {
 	});
 	retailerTransactionApi.post('/', async (req, res) => {
 		try {
-			const retailerTransactionData = await retailertransaction.create(req.body);
+			const retailerTransactionData = await RetailerTransaction.create(req.body);
 			res.status(200).json({
 				message: 'Successfully Retreived Data for retailerTransaction',
 				retailerTransaction: retailerTransactionData,

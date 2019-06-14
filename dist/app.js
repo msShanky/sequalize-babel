@@ -17,6 +17,8 @@ var _morgan = _interopRequireDefault(require("morgan"));
 
 var _bodyParser = _interopRequireDefault(require("body-parser"));
 
+var _cors = _interopRequireDefault(require("cors"));
+
 var _index = _interopRequireDefault(require("./routes/index"));
 
 var _sequelizeConnector = _interopRequireDefault(require("./util/sequelizeConnector"));
@@ -25,6 +27,7 @@ var _sequelizeConnector = _interopRequireDefault(require("./util/sequelizeConnec
 // eslint-disable-next-line import/no-named-as-default
 var app = (0, _express["default"])();
 app.use((0, _morgan["default"])('dev'));
+app.use((0, _cors["default"])());
 app.use(_express["default"].json());
 app.use(_express["default"].urlencoded({
   extended: false

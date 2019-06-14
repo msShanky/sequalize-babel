@@ -13,9 +13,10 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 
 var _express = require("express");
 
+// TODO:abstract all the basic crud to a function
 // const retailerRoute = Router();
 var retailerRoute = function retailerRoute(_ref) {
-  var retailer = _ref.retailer;
+  var Retailer = _ref.Retailer;
   var retailerApi = (0, _express.Router)();
   retailerApi.get('/',
   /*#__PURE__*/
@@ -30,7 +31,7 @@ var retailerRoute = function retailerRoute(_ref) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return retailer.findAll();
+              return Retailer.findAll();
 
             case 3:
               retailerData = _context.sent;
@@ -74,7 +75,7 @@ var retailerRoute = function retailerRoute(_ref) {
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return retailer.create(req.body);
+              return Retailer.create(req.body);
 
             case 3:
               retailerCreated = _context2.sent;

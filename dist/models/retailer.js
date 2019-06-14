@@ -1,59 +1,49 @@
 "use strict";
 
 module.exports = function (sequelize, DataTypes) {
-  var Retailer = sequelize.define('retailer', {
-    RetailerId: {
+  var Retailer = sequelize.define('Retailer', {
+    retailerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    RetailerName: {
+    retailerName: {
       type: DataTypes.STRING(50),
       allowNull: false
     },
-    RetailerType: {
+    retailerType: {
       type: DataTypes.BOOLEAN,
       allowNull: false
     },
-    LogoCDN: {
+    logoCDN: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    LogoBase64: {
+    logoBase64: {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    MembershipIdValidationRegex: {
+    membershipIdValidationRegex: {
       type: DataTypes.STRING(255),
       allowNull: true
     },
-    MembershipIdName: {
+    membershipIdName: {
       type: DataTypes.STRING(50),
       allowNull: true
     },
-    // CreatedAt: {
-    // 	type: DataTypes.DATE,
-    // 	allowNull: true,
-    // 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-    // },
-    // UpdatedAt: {
-    // 	type: DataTypes.DATE,
-    // 	allowNull: true,
-    // 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-    // },
-    CreatedBy: {
+    createdBy: {
       type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: '1'
     },
-    UpdatedBy: {
+    updatedBy: {
       type: DataTypes.INTEGER,
       allowNull: true,
       defaultValue: '1'
     }
   }, {
-    tableName: 'retailer'
+    tableName: 'Retailer'
   });
   return Retailer;
 };

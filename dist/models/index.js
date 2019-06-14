@@ -23,6 +23,8 @@ var db = {};
 var basename = _path["default"].basename(__filename);
 
 var sequelize = new _sequelize["default"](config.database, config.username, config.password, config);
+console.log('Environment is', trimedENV);
+console.log('Config fetched for the role', config);
 
 _fs["default"].readdirSync(__dirname).filter(function (file) {
   return file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js';

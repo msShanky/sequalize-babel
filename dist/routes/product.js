@@ -13,9 +13,11 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 
 var _express = require("express");
 
+// TODO:abstract all the basic crud to a function
+
 /* product page. */
 var productRoute = function productRoute(_ref) {
-  var product = _ref.product;
+  var Product = _ref.Product;
   var productApi = (0, _express.Router)();
   productApi.get('/',
   /*#__PURE__*/
@@ -30,7 +32,7 @@ var productRoute = function productRoute(_ref) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return product.findAll();
+              return Product.findAll();
 
             case 3:
               productData = _context.sent;
@@ -74,7 +76,7 @@ var productRoute = function productRoute(_ref) {
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return product.create(req.body);
+              return Product.create(req.body);
 
             case 3:
               productData = _context2.sent;

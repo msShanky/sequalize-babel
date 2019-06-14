@@ -1,46 +1,34 @@
-/* jshint indent: 2 */
-
 module.exports = (sequelize, DataTypes) => {
 	const Product = sequelize.define(
-		'product',
+		'Product',
 		{
-			ProductId: {
+			productId: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				primaryKey: true,
-				autoIncrement: true
+				autoIncrement: true,
 			},
-			ProductCode: {
+			productCode: {
 				type: DataTypes.STRING(100),
 				allowNull: false,
 			},
-			ProductName: {
+			productName: {
 				type: DataTypes.STRING(100),
 				allowNull: false,
 			},
-			// CreatedAt: {
-			// 	type: DataTypes.DATE,
-			// 	allowNull: true,
-			// 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-			// },
-			// UpdatedAt: {
-			// 	type: DataTypes.DATE,
-			// 	allowNull: true,
-			// 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-			// },
-			CreatedBy: {
+			createdBy: {
 				type: DataTypes.INTEGER,
 				allowNull: true,
 				defaultValue: '1',
 			},
-			UpdatedBy: {
+			updatedBy: {
 				type: DataTypes.INTEGER,
 				allowNull: true,
 				defaultValue: '1',
 			},
 		},
 		{
-			tableName: 'product',
+			tableName: 'Product',
 		}
 	);
 	return Product;

@@ -13,9 +13,11 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 
 var _express = require("express");
 
+// TODO:abstract all the basic crud to a function
+
 /* retailerTransaction page. */
 var retailerTransactionRoute = function retailerTransactionRoute(_ref) {
-  var retailertransaction = _ref.retailertransaction;
+  var RetailerTransaction = _ref.RetailerTransaction;
   var retailerTransactionApi = (0, _express.Router)();
   retailerTransactionApi.get('/',
   /*#__PURE__*/
@@ -30,7 +32,7 @@ var retailerTransactionRoute = function retailerTransactionRoute(_ref) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return retailertransaction.findAll();
+              return RetailerTransaction.findAll();
 
             case 3:
               retailerTransactionData = _context.sent;
@@ -74,7 +76,7 @@ var retailerTransactionRoute = function retailerTransactionRoute(_ref) {
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return retailertransaction.create(req.body);
+              return RetailerTransaction.create(req.body);
 
             case 3:
               retailerTransactionData = _context2.sent;

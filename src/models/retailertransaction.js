@@ -1,84 +1,74 @@
 module.exports = (sequelize, DataTypes) => {
 	const RetailerTransaction = sequelize.define(
-		'retailertransaction',
+		'Retailertransaction',
 		{
-			RetailerTransactionId: {
+			retailerTransactionId: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				primaryKey: true,
 				autoIncrement: true,
 			},
-			RetailerId: {
+			retailerId: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				references: {
-					model: 'retailer',
-					key: 'RetailerId',
+					model: 'Retailer',
+					key: 'retailerId',
 				},
 			},
-			RetailerMembershipId: {
+			retailerMembershipId: {
 				type: DataTypes.STRING(50),
 				allowNull: false,
 			},
-			PampersLoyaltyId: {
+			pampersLoyaltyId: {
 				type: DataTypes.STRING(50),
 				allowNull: false,
 			},
-			BindingId: {
+			bindingId: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				references: {
-					model: 'binding',
-					key: 'BindingId',
+					model: 'Binding',
+					key: 'bindingId',
 				},
 			},
-			ProductId: {
+			productId: {
 				type: DataTypes.INTEGER,
 				allowNull: false,
 				references: {
-					model: 'product',
-					key: 'ProductId',
+					model: 'Product',
+					key: 'productId',
 				},
 			},
-			Price: {
+			price: {
 				type: DataTypes.FLOAT,
 				allowNull: true,
 			},
-			InvoiceAmount: {
+			invoiceAmount: {
 				type: DataTypes.FLOAT,
 				allowNull: true,
 			},
-			TransactionId: {
+			transactionId: {
 				type: DataTypes.STRING(150),
 				allowNull: true,
 			},
-			ActivityTimestamp: {
+			activityTimestamp: {
 				type: DataTypes.DATE,
 				allowNull: true,
 			},
-			// createdAt: {
-			// 	type: DataTypes.DATE,
-			// 	allowNull: true,
-			// 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-			// },
-			// updatedAt: {
-			// 	type: DataTypes.DATE,
-			// 	allowNull: true,
-			// 	defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-			// },
-			CreatedBy: {
+			createdBy: {
 				type: DataTypes.INTEGER,
 				allowNull: true,
 				defaultValue: '1',
 			},
-			UpdatedBy: {
+			updatedBy: {
 				type: DataTypes.INTEGER,
 				allowNull: true,
 				defaultValue: '1',
 			},
 		},
 		{
-			tableName: 'retailertransaction',
+			tableName: 'RetailerTransaction',
 		}
 	);
 	// RetailerTransaction.associate(models => {

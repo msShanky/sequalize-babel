@@ -13,9 +13,11 @@ var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/
 
 var _express = require("express");
 
+// TODO:abstract all the basic crud to a function
+
 /* Binding Status route */
 var bindingStatusRoute = function bindingStatusRoute(_ref) {
-  var bindingstatus = _ref.bindingstatus;
+  var BindingStatus = _ref.BindingStatus;
   var bindingStatusApi = (0, _express.Router)();
   bindingStatusApi.get('/',
   /*#__PURE__*/
@@ -30,7 +32,7 @@ var bindingStatusRoute = function bindingStatusRoute(_ref) {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return bindingstatus.findAll();
+              return BindingStatus.findAll();
 
             case 3:
               bindingStatusData = _context.sent;
@@ -74,7 +76,7 @@ var bindingStatusRoute = function bindingStatusRoute(_ref) {
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return bindingstatus.create(req.body);
+              return BindingStatus.create(req.body);
 
             case 3:
               bindingStatusData = _context2.sent;
