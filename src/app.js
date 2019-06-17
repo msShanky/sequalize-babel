@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true, parameterLimit: 5
 app.use(express.static(path.join(__dirname, '../public')));
 
 // Establish a connection with the database
-// sequalizeSync();
+sequalizeSync();
 
 app.use('/api', indexRouter);
 

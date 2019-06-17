@@ -2,8 +2,6 @@ import { Router } from 'express';
 
 // TODO:abstract all the basic crud to a function
 
-/* product page. */
-
 const productRoute = ({ Product }) => {
 	const productApi = Router();
 	productApi.get('/', async (req, res) => {

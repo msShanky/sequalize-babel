@@ -32,6 +32,10 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.STRING(50),
 				allowNull: true,
 			},
+			azureContainerName: {
+				type: DataTypes.STRING(255),
+				allowNull: true,
+			},
 			createdBy: {
 				type: DataTypes.INTEGER,
 				allowNull: true,
