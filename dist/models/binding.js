@@ -46,5 +46,12 @@ module.exports = function (sequelize, DataTypes) {
     tableName: 'Binding',
     modelName: 'binding'
   });
+
+  Binding.associate = function (models) {
+    Binding.belongsTo(models.BindingStatus, {
+      foreignKey: 'bindingStatusId'
+    });
+  };
+
   return Binding;
 };

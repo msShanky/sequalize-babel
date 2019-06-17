@@ -48,5 +48,9 @@ module.exports = (sequelize, DataTypes) => {
 			modelName: 'binding',
 		}
 	);
+
+	Binding.associate = models => {
+		Binding.belongsTo(models.BindingStatus, { foreignKey: 'bindingStatusId' });
+	};
 	return Binding;
 };

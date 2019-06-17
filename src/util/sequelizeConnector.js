@@ -2,12 +2,12 @@
 import db from '../models';
 
 const sequalizeSync = () => {
-	db.sequelize
-		.authenticate()
-		.then(() => {
-			console.log('Successfull Connected to database');
-		})
-		.catch(error => console.log('error when connecting to database', error));
+	// db.sequelize
+	// 	.authenticate()
+	// 	.then(() => {
+	// 		console.log('Successfull Connected to database');
+	// 	})
+	// 	.catch(error => console.log('error when connecting to database', error));
 	// db.sequelize
 	// 	.sync({ force: true })
 	// 	.then(() => {

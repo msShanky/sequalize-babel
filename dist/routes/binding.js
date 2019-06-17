@@ -75,13 +75,13 @@ function () {
   var _ref2 = (0, _asyncToGenerator2["default"])(
   /*#__PURE__*/
   _regenerator["default"].mark(function _callee2(req, res, binding, bindingstatus) {
-    var unbindingId, bindingStatusData, unBindingStautsId, dataForUnbinding;
+    var unBindingId, bindingStatusData, unBindingStautsId, dataForUnbinding;
     return _regenerator["default"].wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.prev = 0;
-            unbindingId = req.query.unbindingId;
+            unBindingId = req.body.unBindingId;
             _context2.next = 4;
             return bindingstatus.findAll({
               where: {
@@ -97,7 +97,7 @@ function () {
             _context2.next = 8;
             return binding.findOne({
               where: (0, _defineProperty2["default"])({
-                BindingId: unbindingId
+                BindingId: unBindingId
               }, _sequelize.Op.not, [{
                 bindingStatusId: unBindingStautsId
               }]),
@@ -112,21 +112,22 @@ function () {
               break;
             }
 
-            throw new Error("Cannot Unbind Id : ".concat(unbindingId, ". Because the status in already unbinded "));
+            throw new Error("Cannot Unbind Id : ".concat(unBindingId, ". Because the status in already unbinded "));
 
           case 11:
             _context2.next = 13;
             return binding.update((0, _objectSpread2["default"])({}, dataForUnbinding, {
+              retailerMembershipId: '',
               bindingStatusId: unBindingStautsId
             }), {
               where: {
-                BindingId: unbindingId
+                BindingId: unBindingId
               }
             });
 
           case 13:
             res.status(200).json({
-              message: "Successfully update the value for ".concat(unbindingId)
+              message: "Successfully update the value for ".concat(unBindingId)
             });
             _context2.next = 19;
             break;
@@ -170,64 +171,92 @@ var bindingRoute = function bindingRoute(_ref3) {
           switch (_context3.prev = _context3.next) {
             case 0:
               if (!(Object.keys(req.query).length > 0)) {
-                _context3.next = 5;
+                _context3.next = 4;
                 break;
               }
 
               // eslint-disable-next-line no-unused-expressions
               req.query.pampersId && handleFindingByPampersID(req, res, Binding); // eslint-disable-next-line no-unused-expressions
+              // req.query.unbindingId && handleUnbinding(req, res, Binding, BindingStatus);
 
-              req.query.unbindingId && handleUnbinding(req, res, Binding, BindingStatus);
-              _context3.next = 15;
+              _context3.next = 14;
               break;
 
-            case 5:
-              _context3.prev = 5;
-              _context3.next = 8;
-              return Binding.findAll();
+            case 4:
+              _context3.prev = 4;
+              _context3.next = 7;
+              return Binding.findAll({
+                include: [BindingStatus]
+              });
 
-            case 8:
+            case 7:
               bindingData = _context3.sent;
               res.status(200).json({
                 message: 'Successfully Retreived Data for binding',
                 binding: bindingData
               });
-              _context3.next = 15;
+              _context3.next = 14;
               break;
 
-            case 12:
-              _context3.prev = 12;
-              _context3.t0 = _context3["catch"](5);
+            case 11:
+              _context3.prev = 11;
+              _context3.t0 = _context3["catch"](4);
               res.status(422).json({
                 message: 'Cannot Retreive the data for binding',
                 error: _context3.t0
               });
 
-            case 15:
+            case 14:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[5, 12]]);
+      }, _callee3, null, [[4, 11]]);
     }));
 
     return function (_x8, _x9) {
       return _ref4.apply(this, arguments);
     };
   }());
-  bindingApi.post('/',
+  bindingApi.put('/unbind',
   /*#__PURE__*/
   function () {
     var _ref5 = (0, _asyncToGenerator2["default"])(
     /*#__PURE__*/
     _regenerator["default"].mark(function _callee4(req, res) {
-      var bindingStatusData, bindingStautsId, bindingData;
+      var unBindingId;
       return _regenerator["default"].wrap(function _callee4$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              _context4.prev = 0;
-              _context4.next = 3;
+              unBindingId = req.body.unBindingId;
+              handleUnbinding(req, res, Binding, BindingStatus); // res.status(200).send({ message: 'success' });
+
+            case 2:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function (_x10, _x11) {
+      return _ref5.apply(this, arguments);
+    };
+  }());
+  bindingApi.post('/',
+  /*#__PURE__*/
+  function () {
+    var _ref6 = (0, _asyncToGenerator2["default"])(
+    /*#__PURE__*/
+    _regenerator["default"].mark(function _callee5(req, res) {
+      var bindingStatusData, bindingStautsId, bindingData;
+      return _regenerator["default"].wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.prev = 0;
+              _context5.next = 3;
               return BindingStatus.findAll({
                 where: {
                   BindingStatus: 'Binded'
@@ -236,40 +265,40 @@ var bindingRoute = function bindingRoute(_ref3) {
               });
 
             case 3:
-              bindingStatusData = _context4.sent;
+              bindingStatusData = _context5.sent;
               bindingStautsId = bindingStatusData && bindingStatusData[0].bindingStatusId;
-              _context4.next = 7;
+              _context5.next = 7;
               return Binding.create((0, _objectSpread2["default"])({}, req.body, {
                 bindingStatusId: bindingStautsId
               }));
 
             case 7:
-              bindingData = _context4.sent;
+              bindingData = _context5.sent;
               res.status(200).json({
                 message: 'Successfully Retreived Data for binding',
                 binding: bindingData
               });
-              _context4.next = 14;
+              _context5.next = 14;
               break;
 
             case 11:
-              _context4.prev = 11;
-              _context4.t0 = _context4["catch"](0);
+              _context5.prev = 11;
+              _context5.t0 = _context5["catch"](0);
               res.status(422).json({
                 message: 'Failure creating binding',
-                error: JSON.stringify(_context4.t0)
+                error: JSON.stringify(_context5.t0)
               });
 
             case 14:
             case "end":
-              return _context4.stop();
+              return _context5.stop();
           }
         }
-      }, _callee4, null, [[0, 11]]);
+      }, _callee5, null, [[0, 11]]);
     }));
 
-    return function (_x10, _x11) {
-      return _ref5.apply(this, arguments);
+    return function (_x12, _x13) {
+      return _ref6.apply(this, arguments);
     };
   }());
   return bindingApi;

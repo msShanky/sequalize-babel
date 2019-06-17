@@ -42,8 +42,8 @@ app.use(_bodyParser["default"].urlencoded({
   parameterLimit: 50000
 }));
 app.use(_express["default"]["static"](_path["default"].join(__dirname, '../public'))); // Establish a connection with the database
+// sequalizeSync();
 
-(0, _sequelizeConnector["default"])();
 app.use('/api', _index["default"]);
 var _default = app;
 exports["default"] = _default;
